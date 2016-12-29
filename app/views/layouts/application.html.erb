@@ -6,9 +6,26 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   </head>
 
   <body>
+  	<nav class="navbar navbar-default">
+  	  <div class="container-fluid">
+  	    <div class="navbar-header">
+  	      <a class="navbar-brand" href="#">SuperMovieBlog</a>
+  	    </div>
+  	    <ul class="nav navbar-nav navbar-right">
+  	      <li><a href="#"><%= fa_icon "plus", text: "Nuevo" %></a></li>
+  	      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> Perfil <span class="caret"></span></a>
+  	        <ul class="dropdown-menu">
+  	          <li><a href="#">Publicaciones</a></li>
+  	          <li><a href="#">Salir</a></li>
+  	        </ul>
+  	      </li>
+  	    </ul>
+  	  </div>
+  	</nav>
 
   	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
