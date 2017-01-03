@@ -31,6 +31,10 @@ gem 'annotate'
 
 gem "font-awesome-rails"
 
+gem 'omdbapi'
+
+gem 'compass-rails'
+
 gem "nokogiri", ">= 1.6.7.rc"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

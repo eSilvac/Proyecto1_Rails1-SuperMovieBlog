@@ -12,11 +12,11 @@
   	<nav class="navbar navbar-default">
   	  <div class="container-fluid">
   	    <div class="navbar-header">
-          <%= link_to "SuperMovieBlog", post_index_path ,class:"navbar-brand"%>
+          <%= link_to "SuperMovieBlog", posts_path ,class:"navbar-brand"%>
   	    </div>
   	    <ul class="nav navbar-nav navbar-right">
   	    	<% if user_signed_in? %>
-  	      	<li><a href="#"><%= fa_icon "plus", text: "Nuevo" %></a></li>
+  	      	<li><%= link_to (fa_icon "plus", text: "Nuevo"), new_post_path %></li>
   	      	<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"> <%= current_user.username %> <span class="caret"></span></a>
   	        	<ul class="dropdown-menu">
   	        		<li><a href="#">Publicaciones</a></li>
@@ -29,10 +29,11 @@
   	      <% end %>
   	    </ul>
   	  </div>
-  	</nav>
-
-  	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+  	</nav>	
+    <div class="full">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </div>
   </body>
 </html>

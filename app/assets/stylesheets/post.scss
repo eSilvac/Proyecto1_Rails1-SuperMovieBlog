@@ -1,3 +1,45 @@
-// Place all the styles related to the post controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+body{
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#828282+1,e8e8e8+100 */
+	background: #DBDBDB;
+}
+
+#imagen{
+	padding: 0;
+	.poster{
+		border-radius:5px;
+	}
+}
+
+#post {
+	color: white;
+	margin-bottom:15px ;
+	background-color: #3D3D3D;
+	padding: 0;
+	border-radius: 5px;
+	#body {
+		padding-left: 0;
+		.title {
+			text-decoration: none;
+			color: white;	
+			title:hover { color:white; }
+		}
+	}
+	#rat-but{
+		height: 220px;
+		.userButton {
+			font-size: 25px;
+			padding-bottom: 0px;
+			position: absolute;
+			bottom: 0 ;
+			right: 15px;
+			.editdelete {
+				text-decoration: none;
+				color: white;	
+				editdelete:hover { color:white; }
+			}
+		}
+	}
+	
+}

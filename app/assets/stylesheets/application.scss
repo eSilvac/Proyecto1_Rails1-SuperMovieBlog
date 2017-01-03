@@ -1,18 +1,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+@import "post";
 
 $bgDefault      : #474747;
 $bgHighlight    : #ddc404;
 $colDefault     : #e3c31e;
 $colHighlight   : #110505;
 $dropDown       : true;
+
 .navbar-default {
-  font-size: 16px;
+  font-size: 18px;
   background-color: $bgDefault;
-  border-color: $bgHighlight;
+  border: 0 ;
+  margin-bottom: 0;
   .navbar-brand {
-    font-size: 23px;
+    font-size: 27px;
     color: $colDefault;
     &:hover, &:focus {
       color: $colHighlight; }}

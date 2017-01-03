@@ -1,0 +1,39 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-6 col-xs-offset-3">
+		
+		<h1 class="text-center"><%= form_title %></h1>
+
+		<br>
+
+		<% if @post.errors.any? %>
+		  <div class="alert alert-danger">
+		    <ul>
+		    <% @post.errors.full_messages.each do |msg| %>
+		      <li><%= msg %></li>
+		    <% end %>
+		    </ul>
+		  </div>
+		<% end %>
+
+			<%= form_for @post do |f| %>
+				<div class="form-group">
+					<h3 >Nombre</h3>
+					<%= f.text_field :title, class: "form-control input-lg", placeholder: "Nombre de la Pelicula" %>
+				</div>
+				<div class="form-group">
+					<h3 >Url IMDB</h3>
+					<%= f.url_field :imdb_url, class: "form-control input-lg", placeholder: "URL de IMDB" %>
+				</div>
+				<div class="form-group">
+					<h3 >Descripcion</h3>
+					<%= f.text_area :description, class: "form-control input-lg", placeholder: "Descripcion de la Pelicula" %>
+				</div>
+
+				<div>
+					<%= f.submit form_title, class: "btn btn-success btn-lg btn-block" %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
