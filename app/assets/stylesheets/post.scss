@@ -5,39 +5,59 @@ body{
 	background: #DBDBDB;
 }
 
-#imagen{
-	padding: 0;
-	.poster{
-		border-radius:5px;
+#formulario{
+	#boton{
+		margin-bottom: 30px;
 	}
 }
 
-#post {
+#post{
 	color: white;
 	margin-bottom:15px ;
 	background-color: #3D3D3D;
 	padding: 0;
+	height: 225px;
 	border-radius: 5px;
+	font-size: 16px;
+	#imagen{
+		padding: 1px;
+		.poster{
+			border-radius: 5px;
+		}
+	}
 	#body {
-		padding-left: 0;
+		height: 100%;
+		#footer {
+			color: whitesmoke;
+			font-size: 14px;
+			position: absolute;
+			margin-bottom: 0;
+			bottom: 5px;
+		}
 		.title {
 			text-decoration: none;
 			color: white;	
-			title:hover { color:white; }
+			&:hover { color:white; }
 		}
 	}
 	#rat-but{
-		height: 220px;
+		height: 100%;
+		.star {
+			color: #e3c31e;
+		}
 		.userButton {
 			font-size: 25px;
 			padding-bottom: 0px;
 			position: absolute;
-			bottom: 0 ;
+			bottom: 5px ;
 			right: 15px;
-			.editdelete {
-				text-decoration: none;
+			.edit {
 				color: white;	
-				editdelete:hover { color:white; }
+				&:hover { color:#E97510 ; }
+			}
+			.delete {
+				color: white;
+				&:hover { color:#D20606 ; }
 			}
 		}
 	}

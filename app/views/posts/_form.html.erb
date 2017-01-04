@@ -1,10 +1,7 @@
-<div class="container">
+<div class="container" id="formulario">
 	<div class="row">
 		<div class="col-xs-6 col-xs-offset-3">
-		
 		<h1 class="text-center"><%= form_title %></h1>
-
-		<br>
 
 		<% if @post.errors.any? %>
 		  <div class="alert alert-danger">
@@ -27,11 +24,11 @@
 				</div>
 				<div class="form-group">
 					<h3 >Descripcion</h3>
-					<%= f.text_area :description, class: "form-control input-lg", placeholder: "Descripcion de la Pelicula" %>
+					<%= f.text_area :description, rows:"15", class: "form-control input-lg", placeholder: "Descripcion de la Pelicula" %>
 				</div>
 
 				<div>
-					<%= f.submit form_title, class: "btn btn-success btn-lg btn-block" %>
+					<%= f.submit form_title, class: "btn btn-success btn-lg btn-block", id:"boton" %>
 				</div>
 			<% end %>
 		</div>

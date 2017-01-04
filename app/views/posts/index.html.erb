@@ -11,22 +11,23 @@
 	<div class="row">
 		<% @posts.each do |post| %>
 			<div class="col-xs-7 col-xs-offset-1" id="post">
-				<% movie = Imdb::Movie.new(post.imdb_url) %>
+				<% movie = Imdb::Movie.new(url_edit(post.imdb_url)) %>
 				<div class="col-xs-2" id="imagen">
-					<%= link_to image_tag(OMDB.id("tt" + post.imdb_url).poster , width: '90%'), post, class:"poster" %>
+					<%= link_to image_tag(OMDB.id("tt" + url_edit(post.imdb_url)).poster , height: '225px', width: '95%'), post, class:"poster" %>
 				</div>
 				<div class="col-xs-8" id="body">
-					
-					<h2><%= link_to post.title, post, class:"title" %></h2>
-					<p><%= post.description %></p>
-
+					<h1><%= link_to post.title, post, class:"title" %></h1>
+					<p><%= post.description[0..250]+"..." %></p>
+					<p id="footer">Publicado por <%=  post.user.username %></p>					
 				</div>
 				<div class="col-xs-2" id="rat-but">
-					<h2 class="text-right"><%= movie.rating %></h2>
+
+					<h2 class="text-right"><%= fa_icon "star", class:"star" %> <%= movie.rating %></h2>
+
 					<% if current_user == post.user %>
 						<div class="userButton">
-							<%= link_to (fa_icon "pencil"),edit_post_path(post) , class:"editdelete" %>
-							<%= link_to (fa_icon "trash-o"), post, :method => :delete, class:"editdelete" %>
+							<%= link_to (fa_icon "pencil"),edit_post_path(post) , class:"edit" %>
+							<%= link_to (fa_icon "trash-o"), post, :method => :delete, class:"delete" %>
 						</div>
 					<% end %>	
 				</div>					

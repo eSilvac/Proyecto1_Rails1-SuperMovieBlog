@@ -14,8 +14,20 @@ class PostsController < ApplicationController
 		@post = Post.create(post_params)
 		@post.user = current_user
 		if @post.save
-			@post.update(imdb_url: imdb_url_edit(@post.imdb_url))
 			redirect_to posts_path, notice: "Post Publicado Correctamente"
+		else
+			render :new
+		end
+	end
+
+	def edit 
+		@post = Post.find(params[:id])
+	end
+
+	def update
+		@post = Post.find(params[:id])
+		if @post.update(post_params)
+			redirect_to posts_path, notice: "Post Modificado Correctamente"
 		else
 			render :new
 		end
@@ -24,19 +36,15 @@ class PostsController < ApplicationController
 	def show
 		@post = Post.find(params[:id])
 	end
+
+	def destroy
+		@post = Post.find(params[:id])
+		@post.destroy
+		redirect_to posts_path, notice: "Post Eliminado"
+	end
 	
 	private
 	  	def post_params
 	  		params.require(:post).permit(:title, :imdb_url, :description)
-	  	end
-
-	  	def imdb_url_edit(link)
-	  		num = ""
-	  		link.split("/").each do |parte|
-	  			if parte.start_with?("tt")
-	  				num = parte.delete "tt"
-	  			end	
-	  		end
-	  		num
 	  	end
 end
