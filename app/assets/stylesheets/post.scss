@@ -20,10 +20,8 @@ body{
 	border-radius: 5px;
 	font-size: 16px;
 	#imagen{
-		padding: 1px;
-		.poster{
-			border-radius: 5px;
-		}
+		padding:1px ;
+		border-radius: 7px;
 	}
 	#body {
 		height: 100%;
@@ -62,4 +60,30 @@ body{
 		}
 	}
 	
+}
+
+#showpart{
+	margin: 30px;
+	color: white;
+	height: 500px;
+	hr{
+		border-color: #D2B10C;
+	}
+	#video{
+		padding-bottom: 20px;
+	}
+	#show{
+		background-color: #3D3D3D;
+		border-radius: 10px 0 10px 10px;
+		font-size: 17px;
+		margin-bottom: 30px;
+		#poster{
+			padding: 15px;
+		}
+	}
+	#comments{
+		border-radius: 0 10px 10px 0;
+		background-color: #e3c31e;
+		height: 500px;
+	}
 }

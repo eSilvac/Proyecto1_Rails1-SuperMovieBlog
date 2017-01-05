@@ -1,3 +1,28 @@
-<div>
-	
+<% movie = OMDB.id(url_edit(@post.imdb_url)) %>
+<div class="container-fluid" id="showpart" >
+	<div class="row">
+		<div class="col-xs-7 col-xs-offset-1" id="show">
+			<div class="row">
+				<div class="col-xs-5" id="poster">
+					<%= image_tag movie.poster.sub("SX300","SX900"), width: '100%' %>
+				</div>
+				<div class="col-xs-7">
+					<h1 class="text-center"><%= @post.title %></h1>
+					<hr>
+					<p><%= @post.description %></p>
+					<hr>
+					<h2><%= movie.imdb_rating %></h2>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-xs-12" id="video">
+					<% trailer = "https://www.youtube.com/embed/#{url_video(url_edit(@post.imdb_url))}" %>
+					<iframe  width="100%" height="600px" src="<%= trailer %>" frameborder="0" allowfullscreen></iframe>		
+				</div>					
+			</div>		
+		</div>
+		<div class="col-xs-3" id="comments">
+		</div>
+	</div>
 </div>

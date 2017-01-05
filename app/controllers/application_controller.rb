@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  
+  Tmdb::Api.key("aca8754b338850c1647406ab99cc1098")
+
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -15,11 +18,15 @@ class ApplicationController < ActionController::Base
 	  		num = ""
 	  		link.split("/").each do |parte|
 	  			if parte.start_with?("tt")
-	  				num = parte.delete "tt"
+	  				num = parte
 	  			end	
 	  		end
 	  		num
 		end
 		helper_method :url_edit
-    
+
+		def url_video(url)
+			Tmdb::Movie.trailers(url, external_source: 'imdb_id').youtube.first.source
+		end
+    	helper_method :url_video
 end
