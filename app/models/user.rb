@@ -30,7 +30,8 @@ class User < ApplicationRecord
   }
 
   validate :validate_username
-
+  
+  has_many :comments
   has_many :posts
 
   def validate_username

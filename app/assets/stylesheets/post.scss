@@ -69,6 +69,16 @@ body{
 	hr{
 		border-color: #D2B10C;
 	}
+	#stars{
+		font-size: 21px;
+		.star{
+			color: #C4AD14;
+		}
+		.no-star{
+			color: grey;
+		}
+	}
+
 	#video{
 		padding-bottom: 20px;
 	}
@@ -82,8 +92,38 @@ body{
 		}
 	}
 	#comments{
+		padding: 20px;
 		border-radius: 0 10px 10px 0;
 		background-color: #e3c31e;
-		height: 500px;
+		.btn{
+			background-color:  #3D3D3D;
+		}
+		#body-comments{
+			border-radius: 5px;
+			margin-bottom: 10px;
+			padding: 10px;
+			background-color: #3D3D3D;
+			.body{
+				font-size: 13px;
+				color: whitesmoke;
+				padding-bottom: 20px;
+				word-wrap: break-word;
+
+			}
+			.name{
+				color: grey;
+				font-size: 12px;
+				padding-top: 7px;
+				position: absolute;
+				bottom: -5px;
+			}
+			.delete{
+				font-size: 15px;
+				color: white;
+				position: absolute;
+				bottom: 3px;
+				right: 7px;
+			}
+		}
 	}
 }

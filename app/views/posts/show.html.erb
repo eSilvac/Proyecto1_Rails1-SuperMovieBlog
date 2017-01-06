@@ -9,9 +9,23 @@
 				<div class="col-xs-7">
 					<h1 class="text-center"><%= @post.title %></h1>
 					<hr>
-					<p><%= @post.description %></p>
+					<div class="text-center" id="stars">
+						<% cont = movie.imdb_rating.to_f  %>
+						<% (1..10).each do %>	
+							<% if cont > 0  %>
+								<% if cont > 1 %>
+									<%= fa_icon "star", class:"star" %> 
+								<% else %>
+									<%= fa_icon "star-half-o", class:"star" %> 
+								<% end %>			
+							<% else %>
+								<%= fa_icon "star-o", class:"no-star" %> 
+							<% end %>
+							<% cont -=1 %>
+						<% end %>						
+					</div>
 					<hr>
-					<h2><%= movie.imdb_rating %></h2>
+					<p><%= @post.description %></p>
 				</div>
 			</div>
 			<hr>
@@ -23,6 +37,31 @@
 			</div>		
 		</div>
 		<div class="col-xs-3" id="comments">
+			<% if @post.comments == [] %>
+				<div class="text-center" id="body-comments">
+					<h5>No hay Comentarios, se el Primero en Comentar!</h5>
+				</div>
+			<% else %>
+				<% @post.comments.each do |comentario| %>
+					<div class="col-xs-12" id="body-comments">			
+						<div>
+							<p class="body"><%= comentario.body %></p>
+							<p class="name">Publicado por <%= comentario.user.username %></p>
+							<% if comentario.user == current_user %>
+								<%= link_to (fa_icon "trash-o"), [comentario.post, comentario], :method => :delete, class:"delete" %>
+							<% end %>
+						</div>						
+					</div>
+				<% end %>
+			<% end %>
+			<% if user_signed_in? %>
+				<%= form_for [@post, @post.comments.new] do |com| %>
+					<div class="form-group">
+						<%= com.text_area :body, rows:"3", class: "form-control", placeholder: "Agrega tu Comentario" %>
+					</div>
+					<div class="text-right"><%= com.submit "Comentar", class:"btn" %></div>		
+				<% end %>
+			<% end %>
 		</div>
 	</div>
 </div>
