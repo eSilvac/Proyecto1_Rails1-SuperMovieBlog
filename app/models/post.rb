@@ -14,7 +14,7 @@ class Post < ApplicationRecord
 	has_many :comments
 	belongs_to :user
 	validates :title , presence: true
-	validates :imdb_url, presence: true, format: { with: /\A((http|https):\/\/)?(www.)?(imdb.com.title.tt(\d){7})/, message: "Use a valid IMDB URL"} 
+	validates :imdb_url, presence: true, format: { with: /\A((http|https):\/\/)?(www.)?(imdb.com.title.tt(\d){7})/, message: "is not valid."} 
 	validates :description, presence: true, length: { minimum: 250 }
 
 end

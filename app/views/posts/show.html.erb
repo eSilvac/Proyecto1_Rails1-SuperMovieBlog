@@ -1,5 +1,9 @@
 <% movie = OMDB.id(url_edit(@post.imdb_url)) %>
 <div class="container-fluid" id="showpart" >
+	<div class="back">
+		<%= link_to (fa_icon "chevron-circle-left"), posts_path, class:"ar-back" %>
+	</div>
+
 	<div class="row">
 		<div class="col-xs-7 col-xs-offset-1" id="show">
 			<div class="row">

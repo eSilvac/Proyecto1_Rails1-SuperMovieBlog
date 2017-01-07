@@ -1,8 +1,11 @@
 <div class="container" id="formulario">
 	<div class="row">
+
 		<div class="col-xs-6 col-xs-offset-3">
 		<h1 class="text-center"><%= form_title %></h1>
-
+		<div class="back">
+			<%= link_to (fa_icon "chevron-circle-left"), posts_path, class:"ar-back" %>
+		</div>
 		<% if @post.errors.any? %>
 		  <div class="alert alert-danger">
 		    <ul>
@@ -13,13 +16,15 @@
 		  </div>
 		<% end %>
 
+
+
 			<%= form_for @post do |f| %>
 				<div class="form-group">
 					<h3 >Nombre</h3>
 					<%= f.text_field :title, class: "form-control input-lg", placeholder: "Nombre de la Pelicula" %>
 				</div>
 				<div class="form-group">
-					<h3 >Url IMDB</h3>
+					<h3>Url de <%=  link_to (fa_icon "imdb"), "http://www.imdb.com/find", class:"imdb-link", :target => "_blank" %></h3>
 					<%= f.url_field :imdb_url, class: "form-control input-lg", placeholder: "URL de IMDB" %>
 				</div>
 				<div class="form-group">

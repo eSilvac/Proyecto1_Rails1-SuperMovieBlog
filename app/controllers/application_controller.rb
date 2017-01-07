@@ -29,4 +29,17 @@ class ApplicationController < ActionController::Base
 			Tmdb::Movie.trailers(url, external_source: 'imdb_id').youtube.first.source
 		end
     	helper_method :url_video
+
+    	def rating_top(posts)
+    		arr = []
+    		cont = 0
+    		posts.each do |rating|
+    			arr << { id: rating.id, rating: OMDB.id(url_edit(rating.imdb_url)).imdb_rating, poster:OMDB.id(url_edit(rating.imdb_url)).poster  }
+    			
+    		end
+    		ar = arr.sort_by! { |hsh| hsh[:rating]}
+			return ar.reverse
+
+    	end
+    	helper_method :rating_top
 end

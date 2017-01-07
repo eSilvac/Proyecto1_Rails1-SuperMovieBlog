@@ -1,13 +1,66 @@
 
-
 body{
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#828282+1,e8e8e8+100 */
 	background: #DBDBDB;
 }
 
 #formulario{
+	.imdb-link{
+		text-decoration: none;
+		color: #C4AD14;
+		font-size: 35px;
+		.fa-imdb{
+			padding:2px 3px 1px;
+			border-radius: 5px;
+			background-color:black;
+		}
+	}
+
 	#boton{
 		margin-bottom: 30px;
+	}
+}
+
+#top{
+	
+	margin-top: 30px;
+	color: white;
+	background-color: #3D3D3D;
+	border-radius: 7px;
+	.top3{
+		
+		font-size: 15px;
+		height: 75px;
+		border-radius: 5px;
+		background-color: #e3c31e;
+		margin: 10px 0 ;
+		p {
+			margin-bottom: 0;
+		}
+		#top3-poster{
+			padding:0 ;
+
+		}
+		#top3-body{
+			margin-top: 5px;
+			padding:5px 0 0 5px;			
+			color:black;
+	
+			.star{
+
+				color: #EBE716;
+			}
+		}
+	}
+}
+
+.back{
+	position: fixed;
+	left:60px;
+	.ar-back{
+		font-size:45px;
+		text-decoration: none;
+		color:#3D3D3D;
 	}
 }
 
