@@ -1,8 +1,24 @@
 <% movie = OMDB.id(url_edit(@post.imdb_url)) %>
+<div class="mensajes">
+  <%= render 'layouts/messages' %>
+</div>
 <div class="container-fluid" id="showpart" >
 	<div class="back">
 		<%= link_to (fa_icon "chevron-circle-left"), posts_path, class:"ar-back" %>
 	</div>
+
+	<% if current_user == @post.user %>
+		<div class="row">
+			<div class="col-xs-2 col-xs-offset-5" id="edit-delete">
+				<div class="text-center">
+					<form class="form-inline">
+						<a ><%= link_to (fa_icon "pencil", text: "Editar"), edit_post_path(@post), class:"btn btn-warning" %></a> 
+						<a><%= link_to (fa_icon "trash-o", text: "Eliminar"), @post, :method => :delete, class:"btn btn-danger", data: {confirm: "Are you sure?"} %></a> 
+					</form>
+				</div>
+			</div>
+		</div>
+	<% end %>
 
 	<div class="row">
 		<div class="col-xs-7 col-xs-offset-1" id="show">
@@ -12,6 +28,7 @@
 				</div>
 				<div class="col-xs-7">
 					<h1 class="text-center"><%= @post.title %></h1>
+					<p class="text-center"><%= movie.genre %></p>
 					<hr>
 					<div class="text-center" id="stars">
 						<% cont = movie.imdb_rating.to_f  %>
@@ -28,6 +45,7 @@
 							<% cont -=1 %>
 						<% end %>						
 					</div>
+
 					<hr>
 					<p><%= @post.description %></p>
 				</div>
@@ -50,7 +68,7 @@
 					<div class="col-xs-12" id="body-comments">			
 						<div>
 							<p class="body"><%= comentario.body %></p>
-							<p class="name">Publicado por <%= comentario.user.username %></p>
+							<p class="name">Publicado por <%= comentario.user.username %> hace <%= time_ago_in_words(comentario.created_at) %></p>
 							<% if comentario.user == current_user %>
 								<%= link_to (fa_icon "trash-o"), [comentario.post, comentario], :method => :delete, class:"delete" %>
 							<% end %>

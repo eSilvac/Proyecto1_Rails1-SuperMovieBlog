@@ -1,6 +1,21 @@
+<div class="mensajes">
+  <%= render 'layouts/messages' %>
+</div>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-xs-7 col-xs-offset-1">
+			<%= form_tag posts_path, method: :get do %>
+				<div class="col-xs-3 col-xs-offset-6" id="search-part">
+					<div class="text-right">
+						<%= select_tag :genere, options_from_collection_for_select(Category.all, "id", "name", params[:category_id]), {:onchange => 'this.form.submit()', prompt: "Buscar Por Genero:", class:"order"}  %>
+					</div>
+				</div>
+				<div class="col-xs-3" id="search-part">
+					<div class="text-right">
+						<%= select_tag :search, options_for_select([["Mas Nueva", "created_at DESC"], ["Mas Vieja", "created_at ASC"], ["Nombre(A-Z)", "title ASC"], ["Nombre(Z-A)", "title DESC"]]), {:onchange => 'this.form.submit()', include_blank:"Ordenar por:", class:"order"}  %>
+					</div>
+				</div>
+			<% end %>	
 			<% @posts.each do |post| %>
 				<div class="col-xs-12" id="post">
 					<% movie = OMDB.id(url_edit(post.imdb_url)) %>
@@ -9,8 +24,9 @@
 					</div>
 					<div class="col-xs-8" id="body">
 						<h1><%= link_to post.title, post, class:"title" %></h1>
+						<p><%= movie.genre %></p>
 						<p><%= post.description[0..250]+"..." %></p>
-						<p id="footer">Publicado por <%=  post.user.username %></p>					
+						<p id="footer">Publicado por <%=  post.user.username %> hace <%= time_ago_in_words(post.created_at) %></p>					
 					</div>
 					<div class="col-xs-2" id="rat-but">
 
@@ -19,7 +35,7 @@
 						<% if current_user == post.user %>
 							<div class="userButton">
 								<%= link_to (fa_icon "pencil"),edit_post_path(post) , class:"edit" %>
-								<%= link_to (fa_icon "trash-o"), post, :method => :delete, class:"delete" %>
+								<%= link_to (fa_icon "trash-o"), post, :method => :delete, class:"delete", data: {confirm: "¿Estas Seguro que Deseas Eliminar el Post?"} %>
 							</div>
 						<% end %>	
 					</div>					
@@ -28,22 +44,22 @@
 		</div>
 
 		<div class="col-xs-2 col-xs-offset-1" id="top">
-			<h2 class="text-center">Top 3</h2>
+			<h3 class="text-center">Top 3</h2>
 
-			<% rating_top(@posts)[0..2].each do |post| %>
+			<% rating_top(@posts_top)[0..2].each do |post| %>
 				<div class="top3">
-					
-					<div class="col-xs-9" id="top3-body">
-						<p class="text-center" ><%= Post.find(post[:id]).title %></p>
-						<p class="text-center" id="rating"><%= fa_icon "star", class:"star" %> <%= post[:rating] %></p>
-					</div>
-
-					<div class="col-xs-3" id="top3-poster">
-						<div class="text-right">
-							<%= image_tag post[:poster], height: '75px', width:"auto" %>
+					<%= link_to Post.find(post[:id]) do %>
+						<div class="col-xs-9" id="top3-body">
+							<p class="text-center" ><%= Post.find(post[:id]).title %></p>
+							<p class="text-center" id="rating"><%= fa_icon "star", class:"star" %> <%= post[:rating] %></p>
 						</div>
-						
-					</div>
+
+						<div class="col-xs-3" id="top3-poster">
+							<div class="text-right">
+								<%= image_tag post[:poster], height: '75px', width:"auto" %>
+							</div>
+						</div>
+					<% end %>
 				</div>
 			<% end %>
 		</div>

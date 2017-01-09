@@ -11,7 +11,9 @@
 #
 
 class Post < ApplicationRecord
+	has_many :conections
 	has_many :comments
+	has_many :categories ,through: :conections
 	belongs_to :user
 	validates :title , presence: true
 	validates :imdb_url, presence: true, format: { with: /\A((http|https):\/\/)?(www.)?(imdb.com.title.tt(\d){7})/, message: "is not valid."} 

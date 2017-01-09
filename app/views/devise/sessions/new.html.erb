@@ -2,8 +2,17 @@
   <div class="row">
     <div class="col-xs-4 col-xs-offset-4">
        <h1 class="text-center">Log in</h1>
-
-       <br>
+        <br>
+        <% flash.each do |key, value| %>
+          <div class="alert alert-danger">
+            <ul>
+              <li>
+                <%= value %>
+              </li>
+            </ul>
+          </div>
+        <% end %>
+       
 
        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 

@@ -23,12 +23,15 @@ body{
 
 #top{
 	
-	margin-top: 30px;
+	margin-top: 20px;
 	color: white;
 	background-color: #3D3D3D;
 	border-radius: 7px;
+	h3{
+		margin-top: 15px;
+	}
 	.top3{
-		
+
 		font-size: 15px;
 		height: 75px;
 		border-radius: 5px;
@@ -63,6 +66,21 @@ body{
 		color:#3D3D3D;
 	}
 }
+#search-part{
+	margin-top: 20px;
+	margin-bottom: 7px;
+	padding-right: 0px;
+	.order{
+		text-decoration: none;
+		border-radius: 3px;
+		font-size: 15px;
+		background-color:#3D3D3D; 
+		color: white;
+		height: 30px;
+		width: 100%;
+	}
+}
+
 
 #post{
 	color: white;
@@ -116,12 +134,25 @@ body{
 }
 
 #showpart{
-	margin: 30px;
+	margin: 20px;
 	color: white;
 	height: 500px;
 	hr{
 		border-color: #D2B10C;
 	}
+
+	#edit-delete{
+		border-radius: 5px;
+		background-color:#3D3D3D;
+		padding: 17px 0;
+		margin-bottom: 20px;
+		.btn{
+			margin: 0 5px;
+			width: 100px;
+		}
+		
+	}
+
 	#stars{
 		font-size: 21px;
 		.star{
