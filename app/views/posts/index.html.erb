@@ -10,6 +10,8 @@
 						<%= select_tag :genere, options_from_collection_for_select(Category.all, "id", "name", params[:category_id]), {:onchange => 'this.form.submit()', prompt: "Buscar Por Genero:", class:"order"}  %>
 					</div>
 				</div>
+			<% end %>
+			<%= form_tag posts_path, method: :get do %>
 				<div class="col-xs-3" id="search-part">
 					<div class="text-right">
 						<%= select_tag :search, options_for_select([["Mas Nueva", "created_at DESC"], ["Mas Vieja", "created_at ASC"], ["Nombre(A-Z)", "title ASC"], ["Nombre(Z-A)", "title DESC"]]), {:onchange => 'this.form.submit()', include_blank:"Ordenar por:", class:"order"}  %>

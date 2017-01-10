@@ -211,3 +211,41 @@ body{
 		}
 	}
 }
+
+#showuserpost{
+	
+	margin-top: 20px;
+	#interior{
+		
+
+		padding: 10px 0 ;
+		margin-bottom: 15px;
+		background-color:#3D3D3D;
+		border-radius: 7px;
+
+		h3{
+			margin-top: 10px;
+			text-decoration: none;
+			color: white;	
+			&:hover { color:white; }
+		}
+		h4{
+			margin-top: 16px;
+			text-decoration: none;
+			color: white;	
+			&:hover { color:white; }
+		}
+		#buttons{
+			font-size: 25px;
+			margin-top: 5px;
+			.edit {
+				color: white;	
+				&:hover { color:#E97510 ; }
+			}
+			.delete {
+				color: white;
+				&:hover { color:#D20606 ; }
+			}
+		}
+	}
+}
