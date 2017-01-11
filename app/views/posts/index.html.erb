@@ -25,7 +25,7 @@
 						<%= link_to image_tag(movie.poster , height: '223px', width: '95%'), post, class:"poster" %>
 					</div>
 					<div class="col-xs-8" id="body">
-						<h1><%= link_to post.title, post, class:"title" %></h1>
+						<h2><%= link_to post.title, post, class:"title" %></h2>
 						<p><%= movie.genre %></p>
 						<p><%= post.description[0..250]+"..." %></p>
 						<p id="footer">Publicado por <%=  post.user.username %> hace <%= time_ago_in_words(post.created_at) %></p>					
