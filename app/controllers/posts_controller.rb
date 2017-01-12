@@ -56,7 +56,7 @@ class PostsController < ApplicationController
 	def destroy
 		@post = Post.find(params[:id])
 		@post.destroy
-		redirect_to posts_path, notice: "Post Eliminado"
+		redirect_to posts_path, notice: "Post Eliminado Correctamente"
 	end
 	
 	private

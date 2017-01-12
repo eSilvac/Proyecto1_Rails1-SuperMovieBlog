@@ -1,4 +1,12 @@
 es:
+  errors:
+    messages:
+      blank: "no puede estar en blanco"
+      invalid: "es inválido"
+      too_short: "muy corto"
+      Title: "Titulos"
+
+
   datetime:
       distance_in_words:
         about_x_hours:

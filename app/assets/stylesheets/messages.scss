@@ -1,9 +1,9 @@
 /*flash*/
 .mensajes{
     width: 300px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
+    position: fixed;
+    left: 0;
+    top: 51px;
     .alert-error {
         
         background-color: #f2dede;
