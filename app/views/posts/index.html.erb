@@ -1,9 +1,15 @@
-
 <div class="container-fluid">
-	<div class="mensajes">
-	  <%= render 'layouts/messages' %>
-	</div>
-	<div class="row">
+	<% unless flash.blank? %>
+		<div class="row">
+			<div class="col-xs-4 col-xs-offset-4">
+				<div class="mensajes">
+					<%= render partial: 'layouts/messages', flash: flash %>
+				</div>
+			</div>
+		</div>
+	<% end %>
+
+	<div class="row">	
 		<div class="col-xs-7 col-xs-offset-1">
 			<%= form_tag posts_path, method: :get do %>
 				<div class="col-xs-3 col-xs-offset-6" id="search-part">

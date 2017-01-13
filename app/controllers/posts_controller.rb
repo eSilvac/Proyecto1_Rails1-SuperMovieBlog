@@ -28,7 +28,8 @@ class PostsController < ApplicationController
 		@post.user = current_user
 		if @post.save
 			category_create(@post)
-			redirect_to posts_path, notice: "Post Publicado Correctamente"
+			flash[:success] = "Post Publicado Correctamente"
+			redirect_to posts_path
 		else
 			render :new
 		end
@@ -43,7 +44,8 @@ class PostsController < ApplicationController
 		@post.categories.destroy_all
 		if @post.update(post_params)
 			category_create(@post)
-			redirect_to posts_path, notice: "Post Modificado Correctamente"
+			flash[:alert] = "Post Modificado Correctamente"
+			redirect_to posts_path
 		else
 			render :new
 		end
@@ -56,7 +58,8 @@ class PostsController < ApplicationController
 	def destroy
 		@post = Post.find(params[:id])
 		@post.destroy
-		redirect_to posts_path, notice: "Post Eliminado Correctamente"
+		flash[:error] = "Post Eliminado Correctamente"
+		redirect_to posts_path
 	end
 	
 	private
