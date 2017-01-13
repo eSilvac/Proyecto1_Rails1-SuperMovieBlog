@@ -34,7 +34,7 @@
 						<% cont = movie.imdb_rating.to_f  %>
 						<% (1..10).each do %>	
 							<% if cont > 0  %>
-								<% if cont > 1 || cont == 0 %>
+								<% if cont >= 1 %>
 									<%= fa_icon "star", class:"star" %> 
 								<% else %>
 									<%= fa_icon "star-half-o", class:"star" %> 
